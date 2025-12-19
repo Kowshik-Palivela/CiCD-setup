@@ -36,7 +36,8 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t kowshikpalivela/cicd-setup:latest .
+        docker build -t backstage2k26/cicd-setup:latest .
+
     - name: Check Docker secrets
       run: |
         echo "USERNAME_PRESENT=${{ secrets.DOCKERHUB_USERNAME != '' }}"
@@ -52,4 +53,4 @@ jobs:
     - name: Push Docker image
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: |
-        docker push kowshikpalivela/cicd-setup:latest
+        docker push backstage2k26/cicd-setup:latest
